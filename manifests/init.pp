@@ -11,16 +11,11 @@ class role_elasticsearch (
   class { 'elasticsearch':
     package_url  => $package_url,
     java_install => true,
-    config                    => {
-      'cluster'               => {
-        'name'                => $clustername,
-       },
-      'index'                 => {
-         'number_of_replicas' => $replicas,
-         'number_of_shards'   => $shards
-       },
-     }
-   }
+    config       => { 'cluster.name'             => $clustername,
+                      'index.number_of_shards'   => $shards,
+                      'index.number_of_replicas' => $replicas,
+                    },
+  }
 
   # Create instance
   elasticsearch::instance { 'es-01':
