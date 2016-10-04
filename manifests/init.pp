@@ -8,9 +8,11 @@ class role_elasticsearch (
   $shards      = '1',
 ) {
 
+  # Install Java
+  include java
+
   class { 'elasticsearch':
     package_url  => $package_url,
-    java_install => true,
     config       => { 'cluster.name'             => $clustername,
                       'index.number_of_shards'   => $shards,
                       'index.number_of_replicas' => $replicas,
