@@ -2,7 +2,7 @@
 #
 #
 class role_elasticsearch (
-  $package_url = 'https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.0/elasticsearch-2.4.0.deb',
+  $package_url = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.1.1.deb',
   $clustername = 'cluster-01',
   $replicas    = '0',
   $shards      = '1',
