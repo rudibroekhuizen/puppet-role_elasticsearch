@@ -24,8 +24,8 @@ class role_elasticsearch (
   }
 
   # Install kopf plugin
-  elasticsearch::plugin { 'lmenezes/elasticsearch-kopf':
-    instances  => 'es-01'
-  }
+  #elasticsearch::plugin { 'lmenezes/elasticsearch-kopf':
+  #  instances  => 'es-01'
+  #}
 
 }
