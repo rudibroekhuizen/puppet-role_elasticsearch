@@ -9,7 +9,7 @@ class role_elasticsearch (
 ) {
 
   # Install Java
-  include oracle_java
+  #include oracle_java
 
   class { 'elasticsearch':
     package_url  => $package_url,
