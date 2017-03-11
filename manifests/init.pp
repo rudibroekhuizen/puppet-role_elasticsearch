@@ -4,18 +4,14 @@
 class role_elasticsearch (
   $package_url = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb',
   $clustername = 'cluster-01',
-#  $replicas    = '0',
-#  $shards      = '1',
 ) {
 
   # Install Java
-  #include oracle_java
+  package { 'openjdk-8-jdk': }
 
   class { 'elasticsearch':
     package_url  => $package_url,
-    config       => { 'cluster.name'             => $clustername,
-#                      'index.number_of_shards'   => $shards,
-#                      'index.number_of_replicas' => $replicas,
+    config       => { 'cluster.name' => $clustername,
                     },
   }
 
