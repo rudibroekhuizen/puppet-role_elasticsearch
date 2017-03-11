@@ -12,6 +12,6 @@
       "version_range": ">= 1.0.0",
       "name": "puppetlabs-stdlib"
     }
-  ]
+  ],
+  "data_provider": "hiera"
 }
-
