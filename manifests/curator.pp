@@ -6,4 +6,4 @@ class role_elasticsearch::curator {
   
 }
 
-# Wrapper for https://github.com/tubemogul/puppet-curator
+# Wrapper for https://github.com/cristifalcas/puppet-curator
