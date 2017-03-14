@@ -1,7 +1,14 @@
-curator::crons:
-  logstash:
-    command: 'delete'
-    subcommand: 'indices'
-    parameters: "--time-unit days --older-than 3 --timestring '\\%Y.\\%m.\\%d.\\%H' --prefix logstash-"
-    cron_minute: '30'
-    cron_hour: '*/1'
+curator::action:
+  delete_indices:
+    action: 'delete_indices'
+    continue_if_exception: true
+    filters:
+      - filtertype: 'pattern'
+        value: 'logstash'
+        kind: 'prefix'
+      - filtertype: 'age'
+        direction: 'older'
+        timestring: '%Y.%m.%d'
+        unit: 'days'
+        unit_count: 7
+        source: 'name'
