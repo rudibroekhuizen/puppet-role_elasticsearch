@@ -1,4 +1,4 @@
-curator::action:
+role_elasticsearch::curator_action_hash:
   delete_indices:
     action: 'delete_indices'
     continue_if_exception: true
