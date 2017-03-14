@@ -2,8 +2,9 @@
 #
 #
 class role_elasticsearch (
-  $package_url = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb',
-  $clustername = 'cluster-01',
+  $package_url         = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb',
+  $clustername         = 'cluster-01',
+  $curator_action_hash = undef,
 ) {
 
   # Install Java
@@ -18,6 +19,9 @@ class role_elasticsearch (
   # Create instance
   elasticsearch::instance { 'es-01':
   }
+
+  # Delete old data using curator
+  class { 'role_elasticsearch::curator': }
 
   # Install kopf plugin
   #elasticsearch::plugin { 'lmenezes/elasticsearch-kopf':
