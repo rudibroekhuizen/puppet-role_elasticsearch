@@ -13,6 +13,7 @@ class role_elasticsearch (
   class { 'elasticsearch':
     package_url  => $package_url,
     config       => { 'cluster.name' => $clustername,
+                      'network.host' => '0.0.0.0',
                     },
   }
 
