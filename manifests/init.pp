@@ -1,6 +1,5 @@
 # == Class: role_elasticsearch
 #
-#
 class role_elasticsearch (
   $package_url         = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb',
   $clustername         = 'cluster-01',
