@@ -2,7 +2,12 @@
 #
 class role_elasticsearch::curator {
 
-  #class { 'curator': }
+  # Install curator
+  class { 'curator':
+    package_provider => pip,
+  }
+  
+  # Create actions
   create_resources('curator::action', $role_elasticsearch::curator_action_hash)
 
   # Schedle curator
