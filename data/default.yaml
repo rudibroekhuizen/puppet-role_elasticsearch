@@ -1,14 +1,18 @@
-role_elasticsearch::curator_action_hash:
-  delete_indices:
+actions:
+  1:
     action: 'delete_indices'
-    continue_if_exception: true
+    description: 'delete_indices'
+    options:
+      continue_if_exception: true
+      disable_action: False
+      ignore_empty_list: False
     filters:
-      - filtertype: 'pattern'
-        value: 'logstash'
-        kind: 'prefix'
-      - filtertype: 'age'
-        direction: 'older'
-        timestring: '%Y.%m.%d'
-        unit: 'days'
-        unit_count: 7
-        source: 'name'
+    - filtertype: 'pattern'
+      kind: 'prefix'
+      value: 'logstash'
+    - filtertype: 'age'
+      direction: 'older'
+      source: 'name'
+      timestring: '%Y.%m.%d'
+      unit: 'days'
+      unit_count: 5
