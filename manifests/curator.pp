@@ -22,6 +22,18 @@ class role_elasticsearch::curator {
     minute  => 10,
     weekday => '*',
   }
+
+
+
+# Configure .yml file using https://github.com/cataphract/puppet-yaml_settings module
+  yaml_settings { '/.root/.curator/curator.yml':
+    values => $role_elasticsearch::curator_yml, 
+  }
+  
+  yaml_settings { '/.root/.curator/actions.yml':
+    values => $role_elasticsearch::actions_yml,
+  }
+
   
 }
 
