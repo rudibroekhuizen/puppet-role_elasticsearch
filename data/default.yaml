@@ -1,29 +1,19 @@
-role_elasticsearch::curator_action_hash:
-  logstash:
-    action: 'delete_indices'
-    continue_if_exception: True
-    ignore_empty_list: True
-    filters:
-    - filtertype: 'pattern'
-      kind: 'prefix'
-      value: 'logstash-'
-    - filtertype: 'age'
-      direction: 'older'
-      source: 'name'
-      timestring: '"%Y.%m.%d"'
-      unit: 'days'
-      unit_count: 5
-  metricbeat:
-    action: 'delete_indices'
-    continue_if_exception: True
-    ignore_empty_list: True
-    filters:
-    - filtertype: 'pattern'
-      kind: 'prefix'
-      value: 'metricbeat-'
-    - filtertype: 'age'
-      direction: 'older'
-      source: 'name'
-      timestring: '"%Y.%m.%d"'
-      unit: 'days'
-      unit_count: 5
+role_elasticsearch::actions_yml:
+  actions:
+    1:
+      action: delete_indices
+      description: delete_indices
+      options:
+        continue_if_exception: true
+        disable_action: False
+        ignore_empty_list: False
+      filters:
+      - filtertype: pattern
+        kind: prefix
+        value: logstash
+      - filtertype: age
+        direction: older
+        source: name
+        timestring: %Y.%m.%d
+        unit: days
+        unit_count: 3
