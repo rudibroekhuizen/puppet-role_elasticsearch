@@ -8,7 +8,7 @@ class role_elasticsearch::curator {
   }
 
   # Configure curator.yml file using https://github.com/cataphract/puppet-yaml_settings module
-  #yaml_settings { '/root/.curator/curator.yml':
+  # yaml_settings { '/root/.curator/curator.yml':
   #  values => $role_elasticsearch::curator_yml, 
   #}
   
