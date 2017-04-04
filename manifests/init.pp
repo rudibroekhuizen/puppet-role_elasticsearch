@@ -3,7 +3,8 @@
 class role_elasticsearch (
   $package_url         = 'https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb',
   $clustername         = 'cluster-01',
-  $curator_action_hash = undef,
+  $curator_yml         = undef,
+  $actions_yml         = undef,
 ) {
 
   # Install Java
