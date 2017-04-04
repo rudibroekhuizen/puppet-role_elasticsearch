@@ -2,18 +2,35 @@ role_elasticsearch::actions_yml:
   actions:
     1:
       action: delete_indices
-      description: delete_indices
+      description: logstash
       options:
         continue_if_exception: true
-        disable_action: False
-        ignore_empty_list: False
+        disable_action: false
+        ignore_empty_list: true
       filters:
       - filtertype: pattern
         kind: prefix
-        value: logstash
+        value: logstash-
       - filtertype: age
         direction: older
         source: name
-        timestring: %Y.%m.%d
+        timestring: "%Y.%m.%d"
         unit: days
-        unit_count: 3
+        unit_count: 7
+    2:
+      action: delete_indices
+      description: metricbeat
+      options:
+        continue_if_exception: true
+        disable_action: false
+        ignore_empty_list: true
+      filters:
+      - filtertype: pattern
+        kind: prefix
+        value: metricbeat-
+      - filtertype: age
+        direction: older
+        source: name
+        timestring: "%Y.%m.%d"
+        unit: days
+        unit_count: 7
