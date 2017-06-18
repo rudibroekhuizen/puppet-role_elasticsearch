@@ -20,9 +20,6 @@ class role_elasticsearch (
   elasticsearch::instance { 'es-01':
   }
 
-  # Delete old data using curator
-  class { 'role_elasticsearch::curator': }
-
   # Install kopf plugin
   #elasticsearch::plugin { 'lmenezes/elasticsearch-kopf':
   #  instances  => 'es-01'
